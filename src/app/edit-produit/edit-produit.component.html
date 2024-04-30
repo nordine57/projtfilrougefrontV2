@@ -1,0 +1,59 @@
+<form class="formulaire" [formGroup]="formulaire" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <mat-label>Nom</mat-label>
+    <input matInput formControlName="nom" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Code</mat-label>
+    <input matInput formControlName="code" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Description</mat-label>
+    <textarea matInput formControlName="description"></textarea>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Prix</mat-label>
+    <input matInput formControlName="prix" type="number" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Etat</mat-label>
+    <mat-select formControlName="etat" [compareWith]="comparateurParId">
+      @for(etat of listeEtat; track etat.id){
+      <mat-option [value]="etat">{{ etat.designation }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Etiquettes</mat-label>
+    <mat-select
+      formControlName="listeEtiquettes"
+      multiple
+      [compareWith]="comparateurParId"
+    >
+      @for(etiquette of listeEtiquettes; track etiquette.id){
+      <mat-option [value]="etiquette">{{ etiquette.designation }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+
+  <!-- <mat-chip-listbox
+    multiple
+    formControlName="listeEtiquettes"
+    [compareWith]="comparateurParId"
+  >
+    @for(etiquette of listeEtiquettes; track etiquette.id){
+    <mat-chip-option [value]="etiquette">{{
+      etiquette.designation
+    }}</mat-chip-option>
+    }
+  </mat-chip-listbox> -->
+
+  <button mat-raised-button color="primary" type="submit">
+    {{ idProduit == null ? "Ajouter le produit" : "Modifier le produit" }}
+  </button>
+</form>
