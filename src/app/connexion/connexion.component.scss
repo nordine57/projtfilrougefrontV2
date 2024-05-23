@@ -22,7 +22,7 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
 
 body {
-  background: #456;
+  background: #B0C4DE;
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -58,6 +58,10 @@ body {
   color: #fff;
 }
 
+mat-label {
+  color: black;
+}
+
 .login-container {
   background: #ebebeb;
   padding: 12px;
@@ -65,6 +69,7 @@ body {
 
 /* Every row inside .login-container is defined with p tags */
 .login p {
+  color: black;
   padding: 12px;
 }
 

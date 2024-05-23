@@ -11,6 +11,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-inscription',
@@ -30,6 +31,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 export class InscriptionComponent {
   formBuilder: FormBuilder = inject(FormBuilder);
   http: HttpClient = inject(HttpClient);
+  router: Router = inject(Router);
 
   formulaire: FormGroup = this.formBuilder.group({
     nom: ['', [Validators.required]],
@@ -53,6 +55,8 @@ export class InscriptionComponent {
       this.http
         .post('http://localhost:8080/inscription', this.formulaire.value)
         .subscribe((resultat) => console.log(resultat));
+      this.router.navigateByUrl('/connexion');
+
     }
   }
 

@@ -10,7 +10,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { AuthentificationService } from '../authentification.service';
 
 @Component({
@@ -23,6 +23,7 @@ import { AuthentificationService } from '../authentification.service';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    RouterLink
   ],
   templateUrl: './connexion.component.html',
   styleUrl: './connexion.component.scss',

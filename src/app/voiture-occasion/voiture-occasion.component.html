@@ -1,38 +1,47 @@
-<div class="container">
-  <div class="row">
-    @for(voitureOccasion of listeVoitureOccasion; track voitureOccasion.id) {
+<body>
 
-      <div class="col-6 mt-4">
-        <mat-card>
-          <mat-card-header>
-            <mat-card-title>
-              <span>{{ voitureOccasion.nomVoitureOccasion }}</span>
-            </mat-card-title>
-            <mat-card-subtitle>{{ voitureOccasion.prixVoitureOccasion }}
 
-            </mat-card-subtitle>
-          </mat-card-header>
+    <div >
+      <div class="landing-page-text">
+        <div class="grid-container">
+          @for(voitureOccasion of listeVoitureOccasion; track voitureOccasion.id) {
+            <div class="grid-item mt-2">
+              <!--   <div class="card card-block mb-2">
+                  <h4 class="card-title">Card 1</h4>
+                  <p class="card-text">Welcom to bootstrap card styles</p>
+                  <a href="#" class="btn btn-primary">Submit</a>
+                </div>   -->
 
-          <mat-card-content>
-            <p>
-              {{ voitureOccasion.description }}
-            </p>
 
-          </mat-card-content>
-          <mat-card-actions>
-            <button mat-raised-button color="primary">Ajouter au panier</button>
-            <button mat-raised-button color="accent">Modifier</button>
-            <button
-              mat-raised-button
-              color="warn"
-              (click)="onSupprimerProduit(voitureOccasion.id)"
-            >
-              Supprimer
-            </button>
-          </mat-card-actions>
-        </mat-card>
+              <div class="card card-block">
+                <h4 class="card-title text-right">{{ voitureOccasion.nomVoitureOccasion }}</h4>
+                <img [src]="voitureOccasion.image" alt="Photo de la voiture">
+                <h5 class="card-title mt-3 mb-3">{{ voitureOccasion.prixVoitureOccasion }}</h5>
+                <p class="card-text">{{ voitureOccasion.description }}</p>
+                <p >Date de mise en vente :<br>{{ voitureOccasion.dateArriver }}</p>
+                @if(authentification.utilisateur.role == "ROLE_ADMIN") {
+                <button mat-raised-button color="accent">Modifier</button>
+                <button
+                  mat-raised-button
+                  color="warn"
+                  (click)="onSupprimerProduit(voitureOccasion.id)"
+                >
+                  Supprimer
+                </button>
+                }
+
+
+
+
+              </div>
+
+
+            </div>
+
+          }
+
+        </div>
       </div>
+    </div>
+</body>
 
-    }
-  </div>
-</div>

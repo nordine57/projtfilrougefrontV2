@@ -1,301 +1,124 @@
-:root{
-  --hauteur-menu: 60px;
+/**
+ * 01/28/2016
+ * This pen is years old, and watching at the code after all
+ * those years made me fall from my chair, so I:
+ * - changed all IDs to classes
+ * - converted all units to pixels and em units
+ * - changed all global elements to classes or children of
+ *   .login
+ * - cleaned the syntax to be more consistent
+ * - added a lot of spaces that I so hard tried to avoid
+ *   a few years ago
+ *   (because it's cool to not use them)
+ * - and probably something else that I can't remember anymore
+ *
+ * I sticked to the same philosophy, meaning:
+ * - the design is almost the same
+ * - only pure HTML and CSS
+ * - no frameworks, preprocessors or resets
+ */
+
+/* 'Open Sans' font from Google Fonts */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
+body {
+  background: #B0C4DE;
+  font-family: 'Open Sans', sans-serif;
 }
 
-* {
-  margin: 0px;
-  padding: 0px;
-  font-family: Montserrat, sans-serif;
+.login {
+  width: 400px;
+  margin: 16px auto;
+  font-size: 16px;
 }
 
-nav {
-  width: 100%;
-  font-size: 18px;
-  position: sticky;
-  top: 0;
+/* Reset top and bottom margins from certain elements */
+.login-header,
+.login p {
+
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
-nav > ul {
-  display: flex;
+/* The triangle form is achieved by a CSS hack */
+.login-triangle {
+  width: 0;
+  margin-right: auto;
+  margin-left: auto;
+  border: 12px solid transparent;
+  border-bottom-color: #28d;
+}
+
+.login-header {
+  background: #28d;
+  padding: 20px;
+  font-size: 1.4em;
+  font-weight: normal;
   text-align: center;
-  box-shadow: 0px 1px 2px 1px rgba(0,0,0,0.3);
-  height: var(--hauteur-menu);
+  text-transform: uppercase;
+  color: #fff;
 }
-
-nav ul {
-  list-style-type: none;
+mat-label {
+  color: black;
 }
-
-nav > ul > li {
-  background-color: white;
-  position: relative;
-  height: 100%;
-  flex: 1;
+mat-error {
+  color: red;
 }
-
-nav > ul > li:hover > a{
-  color: #2169EC;
+mat-icon {
+  color: black;
 }
-
-nav > ul > li > a {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-li a {
-  text-decoration: none;
+.cacher {
   color: black;
 }
 
-.menu-deroulant > a:after{
-  content: '❯';
-  font-size: 15px;
-  margin-left: 7px;
-  display: inline-block;
+.login-container {
+  background: #ebebeb;
+  padding: 12px;
 }
 
-.menu-deroulant:hover > a:after{
-  animation: rotationFleche 0.2s linear forwards;
+/* Every row inside .login-container is defined with p tags */
+.login p {
+  padding: 12px;
 }
 
-@keyframes rotationFleche {
-  0% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(45deg);
-  }
-  100%{
-    transform: rotate(90deg);
-  }
-}
-
-.sous-menu {
-  margin-top: var(--hauteur-menu);
+.login input {
+  box-sizing: border-box;
+  display: block;
   width: 100%;
-  text-align: left;
-  overflow: hidden;
-  max-height: 0;
-  border-radius: 2px;
-  background-color: white;
+  border-width: 1px;
+  border-style: solid;
+  padding: 16px;
+  outline: 0;
+  font-family: inherit;
+  font-size: 0.95em;
 }
 
-.menu-deroulant:hover > .sous-menu {
-  animation: apparitionSousMenu 1s forwards;
+.login input[type="email"],
+.login input[type="password"] {
+  background: #fff;
+  border-color: #bbb;
+  color: #555;
 }
 
-@keyframes apparitionSousMenu {
-  0% {
-    box-shadow: 0px 3px 3px 1px rgba(0,0,0,0);
-    border-top: 3px solid #2169EC;
-  }
-  30% {
-    box-shadow: 0px 3px 3px 1px rgba(0,0,0,0.3);
-  }
-  100% {
-    max-height: 50em;
-    border-top: 3px solid #2169EC;
-    box-shadow: 0px 3px 3px 1px rgba(0,0,0,0.3);
-  }
+/* Text fields' focus effect */
+.login input[type="email"]:focus,
+.login input[type="password"]:focus {
+  border-color: #888;
 }
 
-.sous-menu > li:hover {
-  background-color: rgba(33, 105, 236, 0.3);
-}
-
-.sous-menu > li > a {
-  align-items: center;
-  display: flex;
-  height: 50px;
-  padding-left: 20px;
-  width: 100%;
-}
-
-.sous-menu > li:hover > a {
-  color: white;
-}
-body {
-
-  background: linear-gradient(to right, violet, purple, blue);
-
-}
-
-.box {
-
-
-
-  border: 1px solid #c4c4c4;
-
-  padding: 30px 25px 10px 25px;
-
-  background: white;
-
-  margin: 30px auto;
-
-  width: 400px;
-
-  border-radius: 5px;
-
-}
-
-h1.box-logo a {
-
-  text-decoration:none;
-
-}
-
-h1.box-title {
-
-  color: #AEAEAE;
-
-  background: #f8f8f8;
-
-  font-weight: 300;
-
-  padding: 15px 25px;
-
-  line-height: 30px;
-
-  font-size: 25px;
-
-  text-align:center;
-
-  margin: -27px -26px 26px;
-
-}
-
-.box-button {
-
-  border-radius: 5px;
-
-  background: #ec1b08;
-
-  text-align: center;
-
-  cursor: pointer;
-
-  font-size: 19px;
-
-  width: 100%;
-
-  height: 51px;
-
-  padding: 0;
-
+.login input[type="submit"] {
+  background: #28d;
+  border-color: transparent;
   color: #fff;
-
-  border: 0;
-
-  outline:0;
-
+  cursor: pointer;
 }
 
-.box-register
-
-{
-
-  text-align:center;
-
-  margin-bottom:0px;
-
+.login input[type="submit"]:hover {
+  background: #17c;
 }
 
-.box-register a
-
-{
-
-  text-decoration:none;
-
-  font-size:12px;
-
-  color:#666;
-
+/* Buttons' focus effect */
+.login input[type="submit"]:focus {
+  border-color: #05a;
 }
 
-.box-input {
-
-  font-size: 14px;
-
-  background: #fff;
-
-  border: 2px solid rgb(160, 154, 154);
-
-  margin-bottom: 25px;
-
-  padding-left:10px;
-
-  border-radius: 5px;
-
-  width: 347px;
-
-  height: 50px;
-
-}
-
-.textarea {
-
-  font-size: 14px;
-
-  background: #fff;
-
-  border: 2px solid rgb(160, 154, 154);
-
-  margin-bottom: 25px;
-
-  padding-left:10px;
-
-  border-radius: 5px;
-
-  width: 347px;
-
-  height: 50px;
-
-  resize: none;
-
-
-
-}.box-input:focus {
-
-   outline: none;
-
-   border-color:#2b4086;
-
- }
-
-.sucess{
-
-  text-align: center;
-
-  color: white;
-
-}
-
-.sucess a {
-
-  text-decoration: none;
-
-  color: #58aef7;
-
-}
-
-p.errorMessage {
-
-  background-color: #e66262;
-
-  border: #AA4502 1px solid;
-
-  padding: 5px 10px;
-
-  color: #FFFFFF;
-
-  border-radius: 3px;
-
-}
-
-.image {
-
-  text-align: center;
-
-}

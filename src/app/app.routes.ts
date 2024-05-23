@@ -9,6 +9,15 @@ import { adminGuard } from './admin.guard';
 import { ProfilComponent } from './profil/profil.component';
 import {VoitureOccasionComponent} from "./voiture-occasion/voiture-occasion.component";
 import {EntretienComponent} from "./entretien/entretien.component";
+import {ReservationComponent} from "./reservation/reservation.component";
+import {EditProfilComponent} from "./edit-profil/edit-profil.component";
+import {DashboardComponent} from "./dashboard/dashboard.component";
+import {ListeClientComponent} from "./liste-client/liste-client.component";
+import {AjoutVoitureoccaComponent} from "./ajout-voitureocca/ajout-voitureocca.component";
+import {AjoutReservationComponent} from "./ajout-reservation/ajout-reservation.component";
+import {AjoutTacheComponent} from "./ajout-tache/ajout-tache.component";
+import {AjoutBoxComponent} from "./ajout-box/ajout-box.component";
+
 
 export const routes: Routes = [
   { path: 'accueil', component: AccueilComponent, canActivate: [userGuard] },
@@ -16,6 +25,14 @@ export const routes: Routes = [
   { path: 'entretien', component: EntretienComponent },
   { path: 'voiture-occasion', component: VoitureOccasionComponent },
   { path: 'inscription', component: InscriptionComponent },
+  { path: 'reservation', component: ReservationComponent },
+  { path: 'edit-profil', component: EditProfilComponent },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'liste-client', component: ListeClientComponent },
+  { path: 'ajout-voitureocca', component: AjoutVoitureoccaComponent },
+  { path: 'ajout-reservation', component: AjoutReservationComponent },
+  { path: 'ajout-tache', component: AjoutTacheComponent },
+  { path: 'ajout-box', component: AjoutBoxComponent },
   {
     path: 'edit-produit',
     component: EditProduitComponent,

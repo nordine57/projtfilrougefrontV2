@@ -1,1 +1,36 @@
-<p>llooo</p>
+<body>
+<div class="login">
+  <div class="login-triangle"></div>
+    <form class="formulaire login-container" [formGroup]="formulaire" (ngSubmit)="onSubmit()">
+      <h1>Ajoutez votre voiture</h1>
+      <br>
+      <mat-label>Plaque Voiture</mat-label>
+      <input matInput formControlName="plaqueVoiture" />
+      <br>
+      <mat-form-field>
+        <mat-label>Marque voiture</mat-label>
+        <mat-select (selectionChange)="onSelectionMarque()" [(ngModel)]="selectedMarque" [ngModelOptions]="{standalone:true}">
+          @for(marquevoiture of listeMarqueVoiture; track marquevoiture.idMarque){
+            <mat-option [value]="marquevoiture">{{ marquevoiture.nomMarque }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Modele voiture</mat-label>
+        <mat-select [(ngModel)]="selectedModele" [ngModelOptions]="{standalone:true}">
+          @for(modelevoiture of listeModeleFiltre; track modelevoiture.idModele){
+            <mat-option [value]="modelevoiture">{{ modelevoiture.nomModele }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+      <button type="submit" mat-raised-button color="primary">
+        Ajoutez votre voiture
+      </button>
+
+
+
+    </form>
+
+</div>
+</body>
