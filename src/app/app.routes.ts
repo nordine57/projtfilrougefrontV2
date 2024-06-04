@@ -17,6 +17,8 @@ import {AjoutVoitureoccaComponent} from "./ajout-voitureocca/ajout-voitureocca.c
 import {AjoutReservationComponent} from "./ajout-reservation/ajout-reservation.component";
 import {AjoutTacheComponent} from "./ajout-tache/ajout-tache.component";
 import {AjoutBoxComponent} from "./ajout-box/ajout-box.component";
+import {PlanningResaComponent} from "./planning-resa/planning-resa.component";
+import {AjoutUtilisateurComponent} from "./ajout-utilisateur/ajout-utilisateur.component";
 
 
 export const routes: Routes = [
@@ -25,7 +27,7 @@ export const routes: Routes = [
   { path: 'entretien', component: EntretienComponent },
   { path: 'voiture-occasion', component: VoitureOccasionComponent },
   { path: 'inscription', component: InscriptionComponent },
-  { path: 'reservation', component: ReservationComponent },
+  { path: 'reservation', component: ReservationComponent, canActivate: [userGuard] },
   { path: 'edit-profil', component: EditProfilComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'liste-client', component: ListeClientComponent },
@@ -33,6 +35,8 @@ export const routes: Routes = [
   { path: 'ajout-reservation', component: AjoutReservationComponent },
   { path: 'ajout-tache', component: AjoutTacheComponent },
   { path: 'ajout-box', component: AjoutBoxComponent },
+  { path: 'ajout-utilisateur', component: AjoutUtilisateurComponent },
+  { path: 'planning', component: PlanningResaComponent },
   {
     path: 'edit-produit',
     component: EditProduitComponent,

@@ -30,6 +30,19 @@
         >
       </li>
 
+      @if(authentification.utilisateur) {
+        @if(authentification.utilisateur.role == "ROLE_TECH") {
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLinkActive="actuelle"
+              routerLink="/planning"
+            >Planning Resa</a
+            >
+          </li>
+        }
+      }
+
 
     </ul>
     <div class="d-flex" id="navbarSupportedContent">

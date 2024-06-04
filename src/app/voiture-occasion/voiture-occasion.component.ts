@@ -30,7 +30,7 @@ export class VoitureOccasionComponent {
     this.http
       .delete('http://localhost:8080/voitureoccasion/' + id)
       .subscribe((resultat) => console.log(resultat));
-    this.router.navigateByUrl('/voitureoccasion');
+    this.router.navigateByUrl('/accueil');
   }
 
 

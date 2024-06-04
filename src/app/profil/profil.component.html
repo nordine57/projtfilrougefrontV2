@@ -17,8 +17,9 @@
     <div class="name"><p >Nom: {{ authentification.utilisateur.nom}}</p></div>
     <div class="name"><p >Prenom:{{ authentification.utilisateur.prenom }}</p></div>
     <div class="designation">@if(authentification.utilisateur.role == "ROLE_ADMIN") {
-
       <p class="name">Vous etes administrateur</p>
+
+
     }
       @if(authentification.utilisateur.role == "ROLE_CLIENT") {
 
