@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body><div class="container py-5">
+  <div class="row">
+    <div class="col-lg-12 p-5">
+      <h1> <i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard {{ authentification.utilisateur.sub }}</h1>
+      <hr />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 p-2">
+      <a class="text-decoration-none" routerLink="/ajout-utilisateur">
+        <div class="card p-3 shadow bg-purple text-center border-0">
+          <div class="card-body">
+            <i class="fa fa-bookmark-o fa-2x" aria-hidden="true"></i>
+            <hr />
+            <p class="card-title lead">Ajouter utilisateur / technicien</p>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 p-2">
+      <a class="text-decoration-none" routerLink="/liste-client">
+        <div class="card p-3 shadow bg-purple text-center border-0">
+          <div class="card-body">
+            <i class="fa fa-image fa-2x" aria-hidden="true"></i>
+            <hr />
+            <p class="card-title lead">Liste des utilisateurs</p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 p-2">
+      <a class="text-decoration-none" routerLink="/ajout-voitureocca">
+        <div class="card p-3 shadow bg-purple text-center border-0">
+          <div class="card-body">
+            <i class="fa fa-envelope fa-2x" aria-hidden="true"></i>
+            <hr />
+            <p class="card-title lead">Ajoutez une voiture occasion</p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 p-2">
+      <a class="text-decoration-none" routerLink="/ajout-tache">
+        <div class="card p-3 shadow bg-purple text-center border-0">
+          <div class="card-body">
+            <i class="fa fa-cart-plus fa-2x" aria-hidden="true"></i>
+            <hr />
+            <p class="card-title lead">Tache</p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+
+  </div>
+</div>
+
+<footer class="footer fixed-bottom">
+  <div class="row text-center p-3">
+    <p class="small text-muted">Develop & Design by </p>
+  </div>
+</footer>
+
+</body>
+</html>
+

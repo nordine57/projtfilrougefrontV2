@@ -1,0 +1,53 @@
+<div class="login">
+  <div class="login-triangle"></div>
+  <form class="formulaire login-container" [formGroup]="formulaire" (ngSubmit)="onSubmit()">
+    <h1>Reserver un creneau entretien</h1>
+    <br>
+    <mat-label>Nom de reservation</mat-label>
+    <input matInput formControlName="nomReservation" />
+    <br>
+
+    <mat-form-field>
+      <input matInput type="time" formControlName="heureReservation" placeholder="heure">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Choose a date</mat-label>
+      <input matInput formControlName="dateReservation" [matDatepicker]="picker">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+
+    <br>
+    <mat-label>Probleme voiture</mat-label>
+    <input matInput formControlName="problemeVoiture" />
+    <br>
+
+    <mat-form-field>
+      <mat-label>Tache:</mat-label>
+      <mat-select  [(ngModel)]="selectedTache " [ngModelOptions]="{standalone:true}">
+        @for(tache of listeTache; track tache.idTache){
+          <mat-option [value]="tache">{{ tache.nomTache }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Box:</mat-label>
+      <mat-select  [(ngModel)]="selectedBox " [ngModelOptions]="{standalone:true}">
+        @for(box of listeBox; track box.idBox){
+          <mat-option [value]="box">{{ box.nomBox }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <button type="submit" mat-raised-button color="primary">
+      Reservez
+    </button>
+
+
+  </form>
+
+</div>

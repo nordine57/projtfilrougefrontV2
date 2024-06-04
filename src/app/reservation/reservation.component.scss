@@ -1,0 +1,18 @@
+
+.landing-page button {
+  border: solid white;
+  padding: 7px 10px;
+  text-decoration: none;
+  background-color: unset;
+  border-radius: 20px;
+  font-size: 20px;
+  transition: .4s;
+  color: white;
+}
+
+.landing-page button:hover {
+  transform: scale(1.3);
+  color: black;
+  background-color: #55718C;
+  cursor: pointer;
+}

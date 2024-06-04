@@ -1,0 +1,21 @@
+
+<body>
+<div class="login">
+  <div class="login-triangle"></div>
+  <h2 class="login-header">Ajoutez une tache</h2>
+  <form class="formulaire login-container" [formGroup]="formulaire" (ngSubmit)="onInscription()">
+    <mat-label>Nom de la tache</mat-label>
+    <input matInput formControlName="nomTache" />
+    <mat-label>Duree de la tache</mat-label>
+    <input matInput formControlName="dureeTache" />
+
+
+
+    <button type="submit" mat-raised-button color="primary">
+      Ajouter la tache
+    </button>
+
+  </form>
+</div>
+
+</body>

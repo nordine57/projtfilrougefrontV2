@@ -1,0 +1,26 @@
+<body>
+<div class="login">
+  <div class="login-triangle"></div>
+  <h2 class="login-header">Nouvelle voiture</h2>
+  <form class="formulaire login-container" [formGroup]="formulaire" (ngSubmit)="onInscription()">
+    <mat-label>Nom</mat-label>
+    <input matInput formControlName="nomVoitureOccasion" />
+    <mat-label>Prix</mat-label>
+    <input matInput formControlName="prixVoitureOccasion" />
+
+    <mat-label>Description</mat-label>
+    <input matInput formControlName="description" />
+    <mat-label>Lien de l'image</mat-label>
+    <input matInput formControlName="image" />
+
+
+
+    <br>
+
+    <button type="submit" mat-raised-button color="primary">
+      Ajouter la voiture
+    </button>
+
+  </form>
+</div>
+</body>

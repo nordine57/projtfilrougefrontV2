@@ -1,0 +1,89 @@
+<body>
+<div class="login">
+  <div class="login-triangle"></div>
+  <h2 class="login-header">Inscription</h2>
+  <form class="formulaire login-container" [formGroup]="formulaire" (ngSubmit)="onInscription()">
+    <mat-label>Nom</mat-label>
+    <input matInput formControlName="nom" />
+    <mat-label>Prenom</mat-label>
+    <input matInput formControlName="prenom" />
+
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" />
+
+    @if(formulaire.get("email")?.touched && formulaire.get("email")?.hasError('required')) {
+      <mat-error>L'email est obligatoire</mat-error>
+    } @if(formulaire.get("email")?.touched && formulaire.get("email")?.hasError('email')) {
+    <mat-error>L'email est mal formé</mat-error>
+  }
+    <mat-label>Mot de passe</mat-label>
+    <div style=" display: flex">
+      <input
+        matInput
+        formControlName="motDePasse"
+        (change)="verifierMotDePasseIdentique()"
+        [type]="afficheMotDePasse ? 'text' : 'password'"
+      />
+      <button
+        type="button"
+        mat-icon-button
+        matSuffix
+        (click)="afficheMotDePasse = !afficheMotDePasse"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="afficheMotDePasse"
+      >
+        <mat-icon>{{
+            afficheMotDePasse ? "visibility" : "visibility_off"
+          }}</mat-icon>
+      </button>
+    </div>
+    @if(formulaire.get("motDePasse")?.touched && formulaire.get("motDePasse")?.hasError('required')) {
+      <mat-error>Le mot de passe est obligatoire</mat-error>
+    }
+
+
+
+    <mat-label>Confirmer le mot de passe</mat-label>
+    <div style=" display: flex">
+      <input
+        matInput
+        [(ngModel)]="confirmationMotDePasse"
+        [ngModelOptions]="{ standalone: true }"
+        (change)="verifierMotDePasseIdentique()"
+        [type]="afficheMotDePasseConfirme ? 'text' : 'password'"
+      />
+      <button
+        type="button"
+        mat-icon-button
+        matSuffix
+        (click)="afficheMotDePasseConfirme = !afficheMotDePasseConfirme"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="afficheMotDePasseConfirme"
+      >
+        <mat-icon>{{
+            afficheMotDePasseConfirme ? "visibility" : "visibility_off"
+          }}</mat-icon>
+      </button>
+    </div>
+    @if(motDePasseDifferent) {
+      <mat-error>Les mots de passe ne sont pas identiques</mat-error>
+    }
+
+    <br>
+
+    <mat-form-field>
+      <mat-label>Role:</mat-label>
+      <mat-select  [(ngModel)]="selectedRole " [ngModelOptions]="{standalone:true}">
+        @for(role of listeRole; track role.id){
+          <mat-option [value]="role">{{ role.nom }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <button type="submit" mat-raised-button color="primary">
+      Créer mon compte
+    </button>
+
+  </form>
+</div>
+</body>

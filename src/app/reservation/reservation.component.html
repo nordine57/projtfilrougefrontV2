@@ -1,0 +1,32 @@
+<div class="profile-card" *ngIf="utilisateur && utilisateur.voiture && utilisateur.voiture.length < 1">
+  <div class="landing-page">
+    <button routerLink="/entretien">Ajoutez votre voiture</button>
+  </div>
+</div>
+
+<div class="landing-page">
+  <button routerLink="/ajout-reservation">Prendre rendez-vous</button>
+</div>
+
+<div *ngIf="authentification.utilisateur.role === 'ROLE_ADH'" class="landing-page">
+  <button routerLink="/ajout-box">Louez un box</button>
+</div>
+
+<div class="profile-card" *ngIf="utilisateur && utilisateur.voiture && utilisateur.voiture.length > 0">
+  <div class="salutation">
+    <h1>Votre voiture</h1>
+    <div class="name">
+      <p>Plaque d'administration: {{ utilisateur.voiture[0].plaqueVoiture }}</p>
+      <p>Modele: {{ utilisateur.voiture[0].idModeleVoiture.nomModele }}</p>
+      <p>Marque: {{ utilisateur.voiture[0].idModeleVoiture.marqueVoiture.nomMarque }}</p>
+
+    </div>
+  </div>
+</div>
+
+<div class="profile-card" *ngIf="utilisateur && (!utilisateur.voiture || utilisateur.voiture.length === 0)">
+  <div class="salutation">
+    <h1>Vous n'avez pas de voiture enregistrée</h1>
+  </div>
+</div>
+

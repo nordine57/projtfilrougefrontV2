@@ -1,0 +1,33 @@
+<div >
+  <div class="landing-page-text">
+    <div class="grid-container">
+      @for(resa of listeResa; track resa.idReservation) {
+        <div class="grid-item mt-2">
+          <div class="card card-block">
+            <h4 class="card-title text-right">Nom de la reservation: {{ resa.nomReservation }}</h4>
+            <h4 class="card-title text-right">Date de la reservation: {{ resa.dateReservation }}</h4>
+            <h4 class="card-title text-right">Heure de la reservation:{{ resa.heureReservation }}</h4>
+
+            <h4 class="card-title mt-3 mb-3">Le probleme de la voiture : {{ resa.problemeVoiture }}</h4>
+
+
+
+
+            <button
+              mat-raised-button
+              color="warn"
+              (click)="onPrendreResa(resa)"
+            >
+             Prendre cette reservation
+            </button>
+
+          </div>
+
+
+        </div>
+
+      }
+
+    </div>
+  </div>
+</div>

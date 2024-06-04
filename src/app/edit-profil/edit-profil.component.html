@@ -1,0 +1,23 @@
+<div class="login">
+  <div class="login-triangle"></div>
+  <form class="formulaire login-container" [formGroup]="formulaire" (ngSubmit)="onSubmit()">
+    <h1>Modifier votre profil</h1>
+    <br>
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" />
+    <mat-label>nom</mat-label>
+    <input matInput formControlName="nom" />
+    <mat-label>prenom</mat-label>
+    <input matInput formControlName="prenom" />
+    <br>
+
+
+
+    <button type="submit" mat-raised-button color="primary">
+      Modifiez profil
+    </button>
+
+
+  </form>
+
+</div>

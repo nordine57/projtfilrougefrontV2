@@ -1,0 +1,25 @@
+<div>
+  <div class="landing-page-text">
+    <div class="grid-container">
+      <!-- Parcours de la liste des utilisateurs inscrits -->
+      <div *ngFor="let utilisateurInscrit of listeUtilisateur; trackBy: trackById" class="grid-item mt-2">
+        <div class="card card-block">
+          <h5 class="card-title text-right">{{ utilisateurInscrit.idUser }}</h5>
+          <h5 class="card-title text-right">{{ utilisateurInscrit.nom }}</h5>
+          <h5 class="card-title mt-3 mb-3">{{ utilisateurInscrit.prenom }}</h5>
+          <h5 class="card-title mt-3 mb-3">{{ utilisateurInscrit.email }}</h5>
+
+          <!-- Vérification de l'existence de l'objet voiture -->
+          <div *ngIf="utilisateurInscrit.voiture && utilisateurInscrit.voiture.length > 0; else noVoiture">
+            <h5>Plaque de votre voiture: {{ utilisateurInscrit.voiture[0].plaqueVoiture }}</h5>
+          </div>
+
+          <!-- Message alternatif si pas de voiture -->
+          <ng-template #noVoiture>
+            <h5>Pas de voiture</h5>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
